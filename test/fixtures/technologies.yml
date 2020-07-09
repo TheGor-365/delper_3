@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  purpose: MyString
+  description: MyText
+  doc_link: MyString
+  global_rationg: 1
+
+two:
+  title: MyString
+  purpose: MyString
+  description: MyText
+  doc_link: MyString
+  global_rationg: 1
