@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2020_07_09_193923) do
     t.string "purpose"
     t.text "description"
     t.string "doc_link"
-    t.integer "global_rationg"
+    t.integer "global_rating"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
