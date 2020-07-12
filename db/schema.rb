@@ -10,13 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_09_193923) do
+ActiveRecord::Schema.define(version: 2020_07_12_200501) do
 
   create_table "contacts", force: :cascade do |t|
     t.string "email"
     t.text "message"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "lessons", force: :cascade do |t|
+    t.string "technology_title"
+    t.string "author"
+    t.string "topic"
+    t.text "purpose"
+    t.text "questions"
+    t.text "answer"
+    t.text "content"
+    t.text "examples"
+    t.string "link"
+    t.integer "rating"
+    t.integer "technology_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["technology_id"], name: "index_lessons_on_technology_id"
   end
 
   create_table "technologies", force: :cascade do |t|
@@ -29,4 +46,5 @@ ActiveRecord::Schema.define(version: 2020_07_09_193923) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "lessons", "technologies"
 end

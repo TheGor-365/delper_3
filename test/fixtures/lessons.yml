@@ -1,0 +1,27 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  technology_title: MyString
+  author: MyString
+  topic: MyString
+  purpose: MyText
+  questions: MyText
+  answer: MyText
+  content: MyText
+  examples: MyText
+  link: MyString
+  rating: 1
+  technology: one
+
+two:
+  technology_title: MyString
+  author: MyString
+  topic: MyString
+  purpose: MyText
+  questions: MyText
+  answer: MyText
+  content: MyText
+  examples: MyText
+  link: MyString
+  rating: 1
+  technology: two

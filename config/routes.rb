@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   # get 'contacts' => 'contacts#new'
   resource :contacts, only: [:new, :create], path_names: { :new => '' }
 
-  resources :technologies
+  resources :technologies do
+    resources :lessons
+  end
 
   #  https://guides.rubyonrails.org/routing.html
 end

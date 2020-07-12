@@ -36,6 +36,13 @@ class TechnologiesController < ApplicationController
     end
   end
 
+  def destroy
+    @technology = Technology.find(params[:id])
+    @technology.destroy
+
+    redirect_to technologies_path
+  end
+
   private
   def technology_params
     params.require(:technology).permit(:title, :purpose, :description, :doc_link, :global_rating)
