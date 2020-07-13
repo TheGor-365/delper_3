@@ -1,7 +1,7 @@
 class LessonsController < ApplicationController
   def create
     @technology = Technology.find(params[:technology_id])
-    @lesson = @technology.lessons.create(lesson_params)
+    @technology.lessons.create(lesson_params)
 
     redirect_to technology_path(@technology)
   end

@@ -1,39 +1,33 @@
 <div class="container mt-5 mb-5">
-  <div class="border rounded col-md-8 mb-5">
-    <h1 class="mt-5 mb-5 p-3">
-      <%= @technology.title %>
-    </h1>
 
-    <small>
-      Lesson id: <%= @technology.id %>
+  <h1 class="mt-5 mb-3">
+    <%= @technology.title %>
+  </h1>
+
+  <small class="text-muted">
+    Lesson id: <%= @technology.id %>
+  </small>
+
+  <p>
+    Technology purpose: <%= @technology.purpose %>
+  </p>
+
+  <div class="border rounded p-3 text-muted col-md-8 mb-3">
+    <small class="text-muted">
+      Technology description: <%= @technology.description %>
     </small>
   </div>
 
-  <div class="border rounded p-5 text-muted col-md-8 mb-3">
-    <h4>
-      <%= @technology.title %>
-    </h4>
+  <div class="border rounded p-3 text-muted col-md-8 mb-3">
+    <small>
+      Technology docs: <%= @technology.doc_link %>
+    </small>
   </div>
 
-  <div class="border rounded p-5 text-muted col-md-8 mb-3">
-    <h3>
-      <%= @technology.purpose %>
-    </h3>
-  </div>
-
-  <div class="border rounded p-5 text-muted col-md-8 mb-3">
-    <h3>
-      <%= @technology.description %>
-    </h3>
-  </div>
-
-  <div class="border rounded p-5 text-muted col-md-8 mb-3">
-    <h3>
-      <%= @technology.doc_link %>
-    </h3>
-  </div>
-
-  <div class="border rounded p-5 text-muted col-md-8 mb-3">
+  <div class="border rounded p-3 col-md-3 mb-3">
+    <p>
+      Technology global rating:
+    </p>
     <h3>
       <%= @technology.global_rating %>
     </h3>
@@ -43,80 +37,157 @@
     <%= link_to 'back', technologies_path, class: 'btn btn-primary btn-sm mb-5' %>
   </div>
 
+  <h3 class="mt-5 mb-5">
+    <%= @technology.title %> lessons
+  </h3>
 
-<div class="border rounded col-md-8 mb-5">
-  <h4 class="mt-5 mb-5 p-3">
-    Add lesson for:  <%= @technology.title %>
+
+  <% @technology.lessons.each do |lesson| %>
+    <h4 class="mt-5 mb-3 text-muted">
+      <%= @technology.title %> lesson #<%= lesson.id %>
+    </h4>
+    <div class="border rounded p-5 text-muted col-md-8 mb-3">
+      <i>
+        Lesson author: <%= lesson.author %>
+      </i>
+      <br>
+      <small>
+        Lesson topic: <%= lesson.topic %>
+      </small>
+      <br>
+      <small>
+        Lesson purpose: <%= lesson.purpose %>
+      </small>
+
+      <hr class="mt-5">
+
+      <p>
+        Lesson questions:
+        <br>
+        <%= lesson.questions %>?
+      </p>
+
+      <hr class="mb-5">
+
+      <p>
+        Lesson answer:
+      </p>
+
+      <div class="border rounded p-3 text-muted col-md-8 mb-3">
+        <p>
+          <%= lesson.answer %>
+        </p>
+      </div>
+
+      <p>
+        Lesson content:
+      </p>
+
+      <div class="border rounded p-3 text-muted col-md-8 mb-3">
+        <small>
+          <%= lesson.content %>
+        </small>
+      </div>
+
+      <p>
+        Lesson examples:
+      </p>
+
+      <div class="border rounded p-3 text-muted col-md-8 mb-3">
+        <p>
+          <%= lesson.examples %>
+        </p>
+      </div>
+
+      <p>
+        Lesson #<%= lesson.id %> link:
+      </p>
+
+      <div class="border rounded p-3 text-muted col-md-8 mb-3">
+        <p class="text-muted">
+          <%= lesson.link %>
+        </p>
+      </div>
+
+      <div class="border rounded p-2 col-md-3 mb-3">
+        <small>
+          Lesson rating: <%= lesson.rating %>
+        </small>
+      </div>
+    </div>
+  <% end %>
+
+  <h4 class="mt-5 mb-3">
+    Add lesson for:  <span class="text-muted"><%= @technology.title %></span>
   </h4>
 
   <small>
     Lesson id: <%= @technology.id %>
   </small>
-</div>
 
 
   <%= form_for([ @technology, @technology.lessons.build ]) do |f| %>
-    <div class="border rounded p-3">
-      <div class="border rounded p-5 text-muted col-md-8 mb-3">
+    <div class="border rounded p-3 mt-3">
+      <div class="border rounded p-3 mb-3">
         <h4>
           <%= f.label :technology_title, class: 'form-group' %>
         </h4>
-        <%= f.text_field :technology_title, class: 'form-control', autofocus: true %>
+        <%= f.text_field :technology_title, class: 'form-control' %>
       </div>
 
-      <div class="border rounded p-5 text-muted col-md-8 mb-3">
-        <h3>
+      <div class="border rounded p-3 mb-3">
+        <p>
           <%= f.label :author, class: 'form-group' %>
-        </h3>
+        </p>
         <%= f.text_field :author, class: 'form-control' %>
       </div>
 
-      <div class="border rounded p-5 text-muted col-md-8 mb-3">
-        <h3>
+      <div class="border rounded p-3 mb-3">
+        <p>
           <%= f.label :topic, class: 'form-group' %>
-        </h3>
+        </p>
         <%= f.text_area :topic, class: 'form-control', rows: '5' %>
       </div>
 
-      <div class="border rounded p-5 text-muted col-md-8 mb-3">
-        <h3>
+      <div class="border rounded p-3 mb-3">
+        <p>
           <%= f.label :purpose, class: 'form-group' %>
-        </h3>
+        </p>
         <%= f.text_field :purpose, class: 'form-control' %>
       </div>
 
-      <div class="border rounded p-5 text-muted col-md-8 mb-3">
-        <h3>
+      <div class="border rounded p-3 mb-3">
+        <p>
           <%= f.label :questions, class: 'form-group' %>
-        </h3>
+        </p>
         <%= f.text_area :questions, class: 'form-control' %>
       </div>
 
-      <div class="border rounded p-5 text-muted col-md-8 mb-3">
-        <h3>
+      <div class="border rounded p-3 mb-3">
+        <p>
           <%= f.label :content, class: 'form-group' %>
-        </h3>
+        </p>
         <%= f.text_area :content, class: 'form-control' %>
       </div>
 
-      <div class="border rounded p-5 text-muted col-md-8 mb-3">
-        <h3>
+      <div class="border rounded p-3 mb-3">
+        <p>
           <%= f.label :examples, class: 'form-group' %>
-        </h3>
+        </p>
         <%= f.text_area :examples, class: 'form-control' %>
       </div>
 
-      <div class="border rounded p-5 text-muted col-md-8 mb-3">
-        <h3>
+      <div class="border rounded p-3 mb-3">
+        <p>
           <%= f.label :link, class: 'form-group' %>
-        </h3>
+        </p>
         <%= f.text_area :link, class: 'form-control' %>
       </div>
 
-      <div class="border rounded p-5 text-muted col-md-8 mb-3">
-        <h3>
+      <div class="border rounded p-3 mb-3">
+        <p>
           <%= f.label :rating, class: 'form-group' %>
-        </h3>
+        </p>
         <%= f.text_area :rating, class: 'form-control' %>
       </div>
 

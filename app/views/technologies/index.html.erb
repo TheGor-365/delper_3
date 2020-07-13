@@ -5,27 +5,42 @@
 
   <% @technologies.each do |technology| %>
     <div class="border rounded p-3 mb-5">
-      <div class="border rounded p-3 mb-3">
-        <h2>
-          <%= technology.title %>
-        </h2>
-      </div>
 
-      <div class="border rounded p-3 mb-3">
+      <h2>
+        <%= technology.title %>
+      </h2>
+
+      <small class="text-muted">
+        Purpose
+      </small>
+
+      <div class="border rounded p-3 mb-3 mt-3">
         <p>
           <%= technology.purpose %>
         </p>
 
         <small class="text-muted">
-          <%= technology.description %>
+          Technology description
         </small>
+
+        <p>
+          <%= technology.description %>
+        </p>
       </div>
 
-      <div class="border rounded p-3 mb-3">
+      <small class="text-muted">
+        Technology doc link
+      </small>
+
+      <div class="border rounded p-3 mb-3 mt-3">
         <%= technology.doc_link %>
       </div>
 
-      <div class="border rounded p-3 mb-4 col-md-2">
+      <small class="text-muted">
+        Technology global rating
+      </small>
+
+      <div class="border rounded p-3 mb-4 col-md-2 mt-3">
         <%= technology.global_rating %>
       </div>
 
