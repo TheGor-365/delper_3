@@ -1,4 +1,6 @@
 class LessonsController < ApplicationController
+  before_action :authenticate_user!, :only => [:create]
+  
   def create
     @technology = Technology.find(params[:technology_id])
     @technology.lessons.create(lesson_params)
