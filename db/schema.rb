@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2020_07_14_182614) do
   end
 
   create_table "lessons", force: :cascade do |t|
-    t.string "technology_title"
+    t.string "lesson_title"
     t.string "author"
     t.string "topic"
     t.text "purpose"
